@@ -1,5 +1,4 @@
 import math
-from multiprocessing.sharedctypes import Value
 
 class Shape:
     def perimeter(self):
@@ -29,7 +28,8 @@ class Ellipse(Shape):
         return math.pi * a * b
 
     def __str__(self):
-        return "Cicumference: " + str(self.perimeter()) + "\nArea: " + str(self.area())
+        title = "========== ELLIPSE ==========\n\n"
+        return title + "Cicumference: " + str(self.perimeter()) + "\nArea: " + str(self.area())
 
 class Circle(Ellipse):
     def __init__(self, a1) -> None:
@@ -43,7 +43,8 @@ class Circle(Ellipse):
         return super().area()
 
     def __str__(self):
-        return super().__str__()
+        title = "========== CIRCLE ==========\n\n"
+        return title + super().__str__()
 
 class Triangle(Shape):
     def __init__(self, sides: list[float], angles: list[float]) -> None:
@@ -68,7 +69,8 @@ class Triangle(Shape):
         return math.sqrt(s * (s - self.side_1) * (s - self.side_2) * (s - self.side_3))
 
     def __str__(self):
-        return "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
+        title = "========== TRIANGLE ==========\n\n"
+        return title + "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
 
 class Quadrilateral(Shape):
     def __init__(self, sides: list[float], angles: list[float]) -> None:
@@ -96,6 +98,7 @@ class Quadrilateral(Shape):
         raise NotImplementedError
 
     def __str__(self):
+        title = "========== QUADRILATERAL ==========\n\n"
         return "Perimeter: " + str(self.perimeter()) + "\nArea unknown without more information (diagonal or angles)."
 
 class Parallelogram(Quadrilateral):
@@ -124,7 +127,8 @@ class Parallelogram(Quadrilateral):
         raise NotImplementedError
 
     def __str__(self):
-        return "Perimeter: " + str(self.perimeter()) + "\nArea unknown without more information (diagonal or angles)."
+        title = "========== PARALLELOGRAM ==========\n\n"
+        return title + "Perimeter: " + str(self.perimeter()) + "\nArea unknown without more information (diagonal or angles)."
 
 class Rectangle(Parallelogram):
     def __init__(self, sides: list[float], angles: list[float]) -> None:
@@ -140,7 +144,8 @@ class Rectangle(Parallelogram):
         return self.side_1 * self.side_2
 
     def __str__(self):
-        return "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
+        title = "========== RECTANGLE ==========\n\n"
+        return title + "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
 
 class Square(Rectangle):
     def __init__(self, sides: list[float], angles: list[float]) -> None:
@@ -159,7 +164,8 @@ class Square(Rectangle):
         return self.side_1**2
 
     def __str__(self):
-        return "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
+        title = "========== SQUARE ==========\n\n"
+        return title + "Perimeter: " + str(self.perimeter()) + "\nArea: " + str(self.area())
 
 def main():
     rectangle = Rectangle([2, 4, 2, 4], [90, 90, 90, 90])
@@ -168,4 +174,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-    
