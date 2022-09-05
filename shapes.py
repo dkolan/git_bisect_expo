@@ -90,7 +90,7 @@ class Quadrilateral(Shape):
 
 
     def perimeter(self):
-        return self.side_1 + self.side_2 + self.side_3 + self.side_4
+        return self.side_1 * 4
 
     def area(self):
         raise NotImplementedError
